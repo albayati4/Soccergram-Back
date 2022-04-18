@@ -40,7 +40,7 @@ const DeletePost = async (req, res) => {
     try {
         const postId = req.params.id
         const deletedPost = await postModel.findByIdAndDelete(postId)
-        res.json(deletedPost)
+        res.send(deletedPost, { message: `Post ${postId} was deleted` })
     } catch (error) {
         console.log(error)
         res.status(500).json({
