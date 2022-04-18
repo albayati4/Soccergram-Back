@@ -22,20 +22,21 @@ const CreatePost = async (req, res) => {
 
 
 
-// finish logic
-// const GetPostsByDesc = async (req, res) => {
-//     try {
-//         const posts = await Post.findAll({
-//             where: {
+// finish logic get posts by descending order
+const GetPostsByDesc = async (req, res) => {
+    try {
+        const posts = await Post.findAll({
+            where: {
 
-//             }
-//         })
-//     } catch (error) {
+            }
+        })
+    } catch (error) {
 
-//     }
-// }
+    }
+}
 
 
 module.exports = {
     GetPosts,
+    GetPostsByDesc
 }
