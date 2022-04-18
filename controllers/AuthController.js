@@ -1,6 +1,8 @@
 const { User } = require('../models')
 const middleware = require('../middleware')
 
+// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJOZXdAVXNlci5jb20iLCJpYXQiOjE2NTAzMDQ1ODZ9.-iXY_VSxG3LNzZUhoxDQl7CMKi_mUfBEb0lFdCKhLPo"
+
 const Login = async (req, res) => {
     try {
         const user = await User.findOne({
@@ -29,7 +31,6 @@ const Register = async (req, res) => {
         const { email, password, firstName, lastName } = req.body
         let passwordDigest = await middleware.hashPassword(password)
         const user = await User.create({ email, password: passwordDigest, firstName, lastName })
-        console.log(bcrypt.compare(password, storedPassword))
         res.send(user)
     } catch (error) {
         throw error
@@ -38,12 +39,15 @@ const Register = async (req, res) => {
 
 const UpdatePassword = async (req, res) => {
     try {
+        console.log('update password')
         const { oldPassword, newPassword } = req.body
         const user = await User.findByPk(req.params.user_id)
+        console.log(user)
+        console.log(req.params)
         if (
             user &&
             (await middleware.comparePassword(
-                user.dataValues.passwordDigest,
+                user.dataValues.password,
                 oldPassword
             ))
         ) {
@@ -52,6 +56,7 @@ const UpdatePassword = async (req, res) => {
             return res.send({ status: 'Ok', payload: user })
         }
         res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
+        console.log('error')
     } catch (error) { }
 }
 
