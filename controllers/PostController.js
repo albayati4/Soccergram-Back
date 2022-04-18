@@ -10,22 +10,33 @@ const GetPosts = async (req, res) => {
 }
 
 
-// const CreatePost = async (req, res) => {
-//     const newPost = await Post.create
-//  req.send(body)
-// }
+const CreatePost = async (req, res) => {
+    try {
+        const post = await Post.create({ ...req.body })
+        res.send(post)
+    } catch (error) {
+        throw error
+    }
+}
 
 
 
-// finish logic
-// const GetPostsByDesc = async (req, res) => {
-//     try {
-//         const posts = await Post.findAll({
-//             where: {
 
-//             }
-//         })
-//     } catch (error) {
-        
-//     }
-// }
+// finish logic get posts by descending order
+const GetPostsByDesc = async (req, res) => {
+    try {
+        const posts = await Post.findAll({
+            where: {
+
+            }
+        })
+    } catch (error) {
+
+    }
+}
+
+
+module.exports = {
+    GetPosts,
+    GetPostsByDesc
+}
