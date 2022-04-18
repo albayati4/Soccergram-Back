@@ -15,15 +15,15 @@ module.exports = (sequelize, DataTypes) => {
   }
   Comments.init({
     body: {
-      type:DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false
-    }
+    },
     likes: {
-      type:DataTypes.STRING,
-    allowNull: false
-  }
-    postId:{
-      type:DataTypes.INTEGER,
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    postId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
       field: 'post_id',
       onDelete: 'CASCADE',
@@ -31,9 +31,9 @@ module.exports = (sequelize, DataTypes) => {
         model: 'posts',
         key: 'id'
       }
-    }
+    },
     userId: {
-      type:DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       field: 'post_id',
       onDelete: 'CASCADE',
@@ -41,11 +41,12 @@ module.exports = (sequelize, DataTypes) => {
         model: 'users',
         key: 'id'
       }
-  }, 
-  {
+    }
+  }, {
     sequelize,
     modelName: 'Comments',
     tableName: 'comments'
+
   });
   return Comments;
 };

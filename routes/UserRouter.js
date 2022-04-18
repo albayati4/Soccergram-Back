@@ -1,7 +1,7 @@
 const Router = require('express').Router()
-const controller = ('../controllers/UserController')
+const controller = require('../controllers/UserController')
 
-Router.get('/', controller.User)
+Router.get('/', controller.GetUsers)
 
 
 module.exports = Router
