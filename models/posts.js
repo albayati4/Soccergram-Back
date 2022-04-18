@@ -15,21 +15,22 @@ module.exports = (sequelize, DataTypes) => {
   }
   Posts.init({
     title: {
-      type:DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false
-    }
+    },
     body: {
-      type:DataTypes.STRING,
-      allowNull: false}
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     userId: {
-      type:DataTypes.INTEGER
+      type: DataTypes.INTEGER,
       allowNull: false,
       field: 'user_id',
       onDelete: 'CASCADE',
       references: {
         model: 'users',
         key: 'id'
-      } 
+      }
     }
   }, {
     sequelize,
