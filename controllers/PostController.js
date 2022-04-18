@@ -10,10 +10,15 @@ const GetPosts = async (req, res) => {
 }
 
 
-// const CreatePost = async (req, res) => {
-//     const newPost = await Post.create
-//  req.send(body)
-// }
+const CreatePost = async (req, res) => {
+    try {
+        const post = await Post.create({ ...req.body })
+        res.send(post)
+    } catch (error) {
+        throw error
+    }
+}
+
 
 
 
@@ -26,6 +31,11 @@ const GetPosts = async (req, res) => {
 //             }
 //         })
 //     } catch (error) {
-        
+
 //     }
 // }
+
+
+module.exports = {
+    GetPosts,
+}
