@@ -1,9 +1,10 @@
-const { Post } = require('../models')
+const { Posts } = require('../models')
 
 const GetPosts = async (req, res) => {
     try {
-        const posts = await Post.findAll()
-        res.send(posts)
+
+        const allPosts = await Posts.findAll()
+        res.send(allPosts)
     } catch (error) {
         throw error
     }
@@ -15,8 +16,8 @@ const CreatePost = async (req, res) => {
         let buildBody = {
             ...req.body
         }
-        const post = await Post.create(buildBody)
-        res.send(post)
+        const createPost = await Posts.create(buildBody)
+        res.send(createPost)
     } catch (error) {
         throw error
     }
@@ -25,7 +26,7 @@ const CreatePost = async (req, res) => {
 const UpdatePost = async (req, res) => {
     try {
         let postId = parseInt(req.params.postId)
-        const updatePost = await Post.update(req.body, {
+        const updatePost = await Posts.update(req.body, {
             where: { id: postId },
             returning: true
         })

@@ -9,6 +9,7 @@ Router.post(
     middleware.verifyToken,
     controller.CreatePost
 )
+
 Router.put(
     '/:post_id',
     middleware.stripToken,
