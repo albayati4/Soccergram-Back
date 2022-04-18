@@ -25,7 +25,7 @@ const CreatePost = async (req, res) => {
 
 const UpdatePost = async (req, res) => {
     try {
-        let postId = parseInt(req.params.postId)
+        let postId = parseInt(req.params.post_id)
         const updatePost = await Posts.update(req.body, {
             where: { id: postId },
             returning: true
