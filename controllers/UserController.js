@@ -45,5 +45,6 @@ const GetUserFollowers = async (req, res) => {
 
 module.exports = {
     GetUsers,
-    GetUserFollowing
+    GetUserFollowing,
+    GetUserFollowers
 }
