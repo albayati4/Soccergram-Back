@@ -10,7 +10,24 @@ const GetUsers = async (req, res) => {
     }
 }
 
+const GetUserFollowing = async (req, res) => {
+    try {
+        const list = await User.findAll({
+            include: [{
+                model: User,
+                as: 'following',
+                through: { attributes: [] }
+            }]
+        })
+        console.log('getting followers')
+        res.send(list)
+    } catch (error) {
+        throw error
+    }
+}
+
 
 module.exports = {
-    GetUsers
+    GetUsers,
+    GetUserFollowing
 }
