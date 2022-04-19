@@ -14,15 +14,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   UserFollower.init({
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
+      field: 'user_id',
       references: {
         model: 'users',
         key: 'id'
       }
     },
-    follower_id: {
+    followerId: {
       type: DataTypes.INTEGER,
+      field: 'follower_id',
       references: {
         model: 'users',
         key: 'id'

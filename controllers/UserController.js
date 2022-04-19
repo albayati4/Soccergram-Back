@@ -19,7 +19,7 @@ const GetUserFollowing = async (req, res) => {
                 through: { attributes: [] }
             }]
         })
-        console.log('getting followers')
+        console.log('users I follow')
         res.send(list)
     } catch (error) {
         throw error
