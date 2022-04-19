@@ -26,6 +26,22 @@ const GetUserFollowing = async (req, res) => {
     }
 }
 
+const GetUserFollowers = async (req, res) => {
+    try {
+        const list = await User.findAll({
+            include: [{
+                model: User,
+                as: 'followers',
+                throught: { attributes: [] }
+            }]
+        })
+        console.log('my followers')
+        res.send(list)
+    } catch (error) {
+        throw error
+    }
+}
+
 
 module.exports = {
     GetUsers,
