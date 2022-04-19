@@ -36,7 +36,7 @@ const GetUserFollowing = async (req, res) => {
 const GetUserFollowers = async (req, res) => {
     try {
         const list = await User.findAll({
-            attributes: ['id', 'firstName', 'lastName'],
+            attributes: ['firstName', 'lastName'],
             include: [{
                 model: User,
                 as: 'followers',
