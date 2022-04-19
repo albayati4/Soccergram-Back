@@ -15,5 +15,12 @@ Router.get(
     middleware.verifyToken,
     controller.CheckSession
 )
+Router.delete(
+    '/delete_profile/:user_id',
+    middleware.stripToken,
+    middleware.verifyToken,
+    controller.DeleteProfile
+)
+
 
 module.exports = Router
