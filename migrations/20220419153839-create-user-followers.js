@@ -1,5 +1,4 @@
 'use strict';
-
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('user_followers', {
@@ -9,19 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'users',
-          key: 'id'
-        }
+      user_id: {
+        type: Sequelize.INTEGER
       },
-      followerId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'users',
-          key: 'id'
-        }
+      follower_id: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -31,10 +22,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    })
+    });
   },
-
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('user_followers')
+    await queryInterface.dropTable('user_followers');
   }
 };
