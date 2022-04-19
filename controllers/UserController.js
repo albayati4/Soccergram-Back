@@ -20,7 +20,7 @@ const GetUserFollowing = async (req, res) => {
                 model: User,
                 as: 'following',
                 through: { attributes: [] },
-                attributes: ['firstName', 'lastName']
+                // attributes: ['firstName', 'lastName']
             }]
         })
         console.log('users I follow')
@@ -33,13 +33,16 @@ const GetUserFollowing = async (req, res) => {
 const GetUserFollowers = async (req, res) => {
     try {
         const list = await User.findAll({
-            attributes: ['firstName', 'lastName'],
+            attributes: ['id', 'firstName', 'lastName'],
             include: [{
                 model: User,
                 as: 'followers',
-                throught: { attributes: [] },
+                through: { attributes: [] },
                 attributes: ['firstName', 'lastName']
-            }]
+            }],
+            where: {
+                id: req.params.user_id
+            }
         })
         console.log('my followers')
         res.send(list)
