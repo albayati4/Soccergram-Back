@@ -20,8 +20,11 @@ const GetUserFollowing = async (req, res) => {
                 model: User,
                 as: 'following',
                 through: { attributes: [] },
-                // attributes: ['firstName', 'lastName']
-            }]
+                attributes: ['firstName', 'lastName']
+            }],
+            where: {
+                id: req.params.user_id
+            }
         })
         console.log('users I follow')
         res.send(list)
