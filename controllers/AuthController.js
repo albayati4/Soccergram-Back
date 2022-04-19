@@ -60,6 +60,14 @@ const UpdatePassword = async (req, res) => {
     } catch (error) { }
 }
 
+const DeleteProfile = async (req, res) => {
+    try {
+
+    } catch (error) {
+        throw error
+    }
+}
+
 const CheckSession = async (req, res) => {
     const { payload } = res.locals
     res.send(payload)
