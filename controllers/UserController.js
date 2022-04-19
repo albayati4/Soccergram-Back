@@ -2,7 +2,9 @@ const { User } = require('../models')
 
 const GetUsers = async (req, res) => {
     try {
-        const user = await User.findAll()
+        const user = await User.findAll({
+            attributes: ['firstName', 'lastName', 'email']
+        })
         console.log('getting user')
         res.send(user)
     } catch (error) {
@@ -13,10 +15,12 @@ const GetUsers = async (req, res) => {
 const GetUserFollowing = async (req, res) => {
     try {
         const list = await User.findAll({
+            attributes: ['firstName', 'lastName'],
             include: [{
                 model: User,
                 as: 'following',
-                through: { attributes: [] }
+                through: { attributes: [] },
+                attributes: ['firstName', 'lastName']
             }]
         })
         console.log('users I follow')
@@ -29,10 +33,12 @@ const GetUserFollowing = async (req, res) => {
 const GetUserFollowers = async (req, res) => {
     try {
         const list = await User.findAll({
+            attributes: ['firstName', 'lastName'],
             include: [{
                 model: User,
                 as: 'followers',
-                throught: { attributes: [] }
+                throught: { attributes: [] },
+                attributes: ['firstName', 'lastName']
             }]
         })
         console.log('my followers')
