@@ -60,6 +60,23 @@ const UpdatePassword = async (req, res) => {
     } catch (error) { }
 }
 
+const DeleteProfile = async (req, res) => {
+    try {
+        const postgres = require('pg');
+        const conString = 'postgres://user:pass@localhost/mydb';
+        postgres.Connection(conString, function (err, client, done) {
+            if (err) return callback(err);
+            const query = 'DELETE FROM users WHERE id = $1';
+            client.query(query, [id], function (err) {
+                done();
+                return callback(err);
+            })
+        })
+    } catch (error) {
+        throw error
+    }
+}
+
 const CheckSession = async (req, res) => {
     const { payload } = res.locals
     res.send(payload)
@@ -70,5 +87,6 @@ module.exports = {
     Login,
     Register,
     UpdatePassword,
-    CheckSession
+    CheckSession,
+    DeleteProfile
 }
