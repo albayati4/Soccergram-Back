@@ -12,6 +12,20 @@ const GetPosts = async (req, res) => {
     }
 }
 
+const GetUserPosts = async (req, res) => {
+    try {
+        const userPosts = await Posts.findAll({
+            attributes: ['title', 'body'],
+            order: [['updatedAt', 'DESC']],
+            where: {
+                id: req.params.user_id
+            }
+        })
+        res.send(userPosts)
+    } catch (error) {
+        throw error
+    }
+}
 const CreatePost = async (req, res) => {
     try {
         let buildBody = {
@@ -51,6 +65,7 @@ const DeletePost = async (req, res) => {
 
 module.exports = {
     GetPosts,
+    GetUserPosts,
     CreatePost,
     UpdatePost,
     DeletePost

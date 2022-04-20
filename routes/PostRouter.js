@@ -3,6 +3,7 @@ const controller = require('../controllers/PostController')
 const middleware = require('../middleware')
 
 Router.get('/', controller.GetPosts)
+Router.get('/user_feed/:user_id', controller.GetUserPosts)
 Router.post(
     '/',
     middleware.stripToken,
