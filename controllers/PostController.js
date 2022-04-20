@@ -3,7 +3,8 @@ const { Posts } = require('../models')
 const GetPosts = async (req, res) => {
     try {
         const allPosts = await Posts.findAll({
-            order: [Posts, 'createdAt', 'DESC']
+            attributes: ['title', 'body'],
+            order: [['updatedAt', 'DESC']]
         })
         res.send(allPosts)
     } catch (error) {
