@@ -11,6 +11,19 @@ const GetUsers = async (req, res) => {
     }
 }
 
+const GetProfile = async (req, res) => {
+    try {
+        const profile = await User.findByPk({
+            attributes: ['firstName', 'lastName'],
+            where: {
+                id: req.params.user_id
+            }
+        })
+        res.send(profile)
+    } catch (error) {
+        throw error
+    }
+}
 const GetUserFollowing = async (req, res) => {
     try {
         const list = await User.findAll({
@@ -54,6 +67,7 @@ const GetUserFollowers = async (req, res) => {
 
 module.exports = {
     GetUsers,
+    GetProfile,
     GetUserFollowing,
     GetUserFollowers
 }
