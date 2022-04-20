@@ -14,10 +14,10 @@ const GetUsers = async (req, res) => {
 const GetProfile = async (req, res) => {
     try {
         const profile = await User.findAll({
-            attributes: ['firstName', 'lastName', 'email'],
+            attributes: ['firstName', 'lastName'],
             where: {
                 id: req.params.user_id
-            }
+            },
         })
         res.send(profile)
     } catch (error) {
