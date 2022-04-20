@@ -2,7 +2,6 @@ const { Posts } = require('../models')
 
 const GetPosts = async (req, res) => {
     try {
-
         const allPosts = await Posts.findAll()
         res.send(allPosts)
     } catch (error) {
