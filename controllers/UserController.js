@@ -5,7 +5,6 @@ const GetUsers = async (req, res) => {
         const user = await User.findAll({
             attributes: ['firstName', 'lastName', 'email']
         })
-        console.log('getting user')
         res.send(user)
     } catch (error) {
         throw error
@@ -26,7 +25,6 @@ const GetUserFollowing = async (req, res) => {
                 id: req.params.user_id
             }
         })
-        console.log('users I follow')
         res.send(list)
     } catch (error) {
         throw error
@@ -47,7 +45,6 @@ const GetUserFollowers = async (req, res) => {
                 id: req.params.user_id
             }
         })
-        console.log('my followers')
         res.send(list)
     } catch (error) {
         throw error
