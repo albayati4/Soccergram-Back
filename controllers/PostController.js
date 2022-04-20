@@ -16,9 +16,9 @@ const GetUserPosts = async (req, res) => {
     try {
         const userPosts = await Posts.findAll({
             attributes: ['title', 'body'],
-            order: [['updatedAt', 'DESC']],
+            order: [['createdAt', 'DESC']],
             where: {
-                id: req.params.user_id
+                user_id: req.params.user_id
             }
         })
         res.send(userPosts)
