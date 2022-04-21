@@ -62,11 +62,23 @@ const DeletePost = async (req, res) => {
     }
 }
 
+const DeletePostByUserId = async (req, res) => {
+    let postId = parseInt(req.params.post_id)
+    let userId = parseInt(req.params.user_id)
+    await Posts.destroy({
+        where: {
+            postId,
+            userId
+        }
+    })
+}
+
 
 module.exports = {
     GetPosts,
     GetUserPosts,
     CreatePost,
     UpdatePost,
-    DeletePost
+    DeletePost,
+    DeletePostByUserId
 }
