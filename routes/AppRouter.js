@@ -1,6 +1,6 @@
 const Router = require('express').Router()
 const AuthRouter = require('./AuthRouter')
-const CommentRouter = require('/CommentRouter')
+const CommentRouter = require('./CommentRouter')
 const PostRouter = require('./PostRouter')
 const UserRouter = require('./UserRouter')
 
