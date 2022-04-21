@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { User, Posts } = require('../models')
 
 const GetUsers = async (req, res) => {
     try {
@@ -15,6 +15,11 @@ const GetProfile = async (req, res) => {
     try {
         const profile = await User.findAll({
             attributes: ['firstName', 'lastName'],
+            include: [{
+                model: Posts,
+                through: { attributes: [] },
+                attributes: ['title', 'body']
+            }],
             where: {
                 id: req.params.user_id
             },
