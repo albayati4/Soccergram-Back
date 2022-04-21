@@ -2,22 +2,28 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('comments', {
+    await queryInterface.bulkInsert('comments', [{
       body: 'Welcome to SoccerGram!',
       likes: '',
-      postId: 2,
-      userId: 2,
+      post_id: 2,
+      user_id: 2,
+      createdAt: new Date(),
+      updatedAt: new Date()
     }, {
       body: 'I love Soccer too! Who\'s you\'re team?',
       likes: '',
-      postId: 2,
-      userId: 1,
+      post_id: 2,
+      user_id: 1,
+      createdAt: new Date(),
+      updatedAt: new Date()
     }, {
       body: 'You play soccer? Or just a fan?',
       likes: '',
-      postId: 4,
-      userId: 3,
-    })
+      post_id: 4,
+      user_id: 3,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }])
   },
 
   async down(queryInterface, Sequelize) {
