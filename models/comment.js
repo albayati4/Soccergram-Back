@@ -19,8 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     likes: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     },
     postId: {
       type: DataTypes.INTEGER,
