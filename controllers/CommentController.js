@@ -29,18 +29,18 @@ const GetPostComments = async (req, res) => {
 
 const AddComment = async (req, res) => {
     try {
+        console.log(req.body)
+        let postId = parseInt(req.params.post_id)
+        let userId = parseInt(req.params.user_id)
         let buildBody = {
-            ...req.body
+            ...req.body,
+            userId,
+            postId
         }
-        const addComment = await Comment.create({
-            buildBody,
-            where: {
-                post_id: req.params.post_id,
-                user_id: req.params.user_id
-            }
-
+        const postComment = await Comment.create({
+            ...buildBody
         })
-        res.send(addComment)
+        res.send(postComment)
     } catch (error) {
         throw error
     }
