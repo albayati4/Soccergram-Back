@@ -4,7 +4,7 @@ const { Posts } = require('../models')
 const GetPosts = async (req, res) => {
     try {
         const allPosts = await Posts.findAll({
-            attributes: ['title', 'body'],
+            attributes: ['id', 'title', 'body', 'user_id'],
             order: [['updatedAt', 'DESC']]
         })
         res.send(allPosts)
@@ -17,7 +17,7 @@ const GetUserPosts = async (req, res) => {
     try {
         const userPosts = await Posts.findAll({
             attributes: ['title', 'body'],
-            order: [['createdAt', 'DESC']],
+            order: [['updatedAt', 'DESC']],
             where: {
                 user_id: req.params.user_id
             }

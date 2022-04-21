@@ -19,7 +19,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       user_id: 2,
-      follower_id: 3,
+      follower_id: 1,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -32,33 +32,7 @@ module.exports = {
       follower_id: 4,
       createdAt: new Date(),
       updatedAt: new Date()
-    }, {
-      user_id: 3,
-      follower_id: 5,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      user_id: 3,
-      follower_id: 6,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      user_id: 4,
-      follower_id: 5,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      user_id: 4,
-      follower_id: 6,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      user_id: 5,
-      follower_id: 6,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }
-    ])
+    }])
   },
 
   async down(queryInterface, Sequelize) {
