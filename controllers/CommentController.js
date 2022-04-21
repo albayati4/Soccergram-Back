@@ -12,7 +12,22 @@ const GetComments = async (req, res) => {
     }
 }
 
+const GetPostComments = async (req, res) => {
+    try {
+        const postComments = await Comment.findAll({
+            attributes: ['body', 'likes'],
+            order: [['updatedAt', 'DESC']],
+            where: {
+                post_id: req.params.post_id
+            }
+        })
+        res.send(postComments)
+    } catch (error) {
+        throw error
+    }
+}
 
 module.exports = {
-    GetComments
+    GetComments,
+    GetPostComments
 }
