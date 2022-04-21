@@ -15,7 +15,7 @@ const GetPosts = async (req, res) => {
 const GetUserPosts = async (req, res) => {
     try {
         const userPosts = await Posts.findAll({
-            attributes: ['title', 'body'],
+            attributes: ['id', 'title', 'body', 'user_id'],
             order: [['updatedAt', 'DESC']],
             where: {
                 user_id: req.params.user_id
