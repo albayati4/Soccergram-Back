@@ -63,14 +63,15 @@ const DeletePost = async (req, res) => {
 }
 
 const DeletePostByUserId = async (req, res) => {
-    let postId = parseInt(req.params.post_id)
-    let userId = parseInt(req.params.user_id)
+    let id = parseInt(req.params.post_id)
+    let user_id = parseInt(req.params.user_id)
     await Posts.destroy({
         where: {
-            postId,
-            userId
+            id,
+            user_id
         }
     })
+    res.send({ message: `Your post, ${id}, was deleted` })
 }
 
 
