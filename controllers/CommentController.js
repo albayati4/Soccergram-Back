@@ -32,7 +32,14 @@ const AddComment = async (req, res) => {
         let buildBody = {
             ...req.body
         }
-        const addComment = await Comment.create(buildBody)
+        const addComment = await Comment.create({
+            buildBody,
+            where: {
+                post_id: req.params.post_id,
+                user_id: req.params.user_id
+            }
+
+        })
         res.send(addComment)
     } catch (error) {
         throw error
