@@ -27,7 +27,20 @@ const GetPostComments = async (req, res) => {
     }
 }
 
+const AddComment = async (req, res) => {
+    try {
+        let buildBody = {
+            ...req.body
+        }
+        const addComment = await Comment.create(buildBody)
+        res.send(addComment)
+    } catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
     GetComments,
-    GetPostComments
+    GetPostComments,
+    AddComment
 }
