@@ -1,4 +1,3 @@
-const { parse } = require('dotenv')
 const { Posts } = require('../models')
 
 const GetPosts = async (req, res) => {
