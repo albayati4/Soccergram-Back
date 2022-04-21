@@ -1,3 +1,4 @@
+const { parse } = require('dotenv')
 const { Posts } = require('../models')
 
 const GetPosts = async (req, res) => {
@@ -30,7 +31,7 @@ const CreatePost = async (req, res) => {
     const user_id = parseInt(req.params.user_id)
     try {
         let buildBody = {
-            user_id
+            user_id,
             ...req.body
         }
         const createPost = await Posts.create(buildBody)
