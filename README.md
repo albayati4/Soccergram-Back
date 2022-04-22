@@ -17,6 +17,9 @@
 - fork and clone this and the [front end](https://github.com/lmao98/soccergram-front-end) repo
 - create your own branch
 - check the future updates section and help us with that.
+***
+#### Link to the deployed website [HERE](https://guarded-ravine-20374.herokuapp.com/home)
+***
 ### *Technologies*
 
 1. HTML, CSS
