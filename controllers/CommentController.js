@@ -29,7 +29,6 @@ const GetPostComments = async (req, res) => {
 
 const AddComment = async (req, res) => {
     try {
-        console.log(req.body)
         let postId = parseInt(req.params.post_id)
         let userId = parseInt(req.params.user_id)
         let buildBody = {

@@ -25,7 +25,7 @@ const verifyToken = (req, res, next) => {
         res.locals.payload = payload
         return next()
     }
-    res.status(401).send({ status: 'Error', msg: 'Error in verify token' })
+    res.status(401).send({ status: 'Error', msg: 'Unathorized Password' })
 }
 
 const stripToken = (req, res, next) => {
@@ -37,7 +37,7 @@ const stripToken = (req, res, next) => {
             return next()
         }
     } catch (error) {
-        res.status(401).send({ status: 'Error', msg: 'Error in strip token' })
+        res.status(401).send({ status: 'Error', msg: 'Unathorized Password' })
     }
 }
 

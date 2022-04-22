@@ -1,7 +1,6 @@
 const { User } = require('../models')
 const middleware = require('../middleware')
 
-// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJOZXdAVXNlci5jb20iLCJpYXQiOjE2NTAzMDQ1ODZ9.-iXY_VSxG3LNzZUhoxDQl7CMKi_mUfBEb0lFdCKhLPo"
 
 const Login = async (req, res) => {
     try {
